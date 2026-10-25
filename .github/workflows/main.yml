@@ -1,0 +1,46 @@
+```yaml
+name: Build and Deploy Jumper
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pygbag
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pygbag
+
+      - name: Build game
+        run: |
+          python -m pygbag --build "$GITHUB_WORKSPACE/web based jumper game - python/main.py"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: "web based jumper game - python/build/web"
+          publish_branch: gh-pages
+          force_orphan: true
+```
