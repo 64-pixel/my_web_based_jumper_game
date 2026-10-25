@@ -36,6 +36,12 @@ jobs:
         run: |
           python -m pygbag --build "$GITHUB_WORKSPACE/web based jumper game - python/main.py"
 
+      - name: Verify build files
+        run: |
+          test -f "web based jumper game - python/build/web/index.html"
+          test -f "web based jumper game - python/build/web/web.based.jumper.game.-.python.tar.gz"
+          echo "Build files verified."
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
