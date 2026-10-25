@@ -33,10 +33,12 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pygbag
           
+      
       - name: Show installed Pygbag version
         run: |
-          python -m pygbag --version
           python -m pip show pygbag
+          python -m pip index versions pygbag
+
 
 
       
