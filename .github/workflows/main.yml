@@ -31,11 +31,11 @@ jobs:
       - name: Install Pygbag
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pygbag==0.9.3
+          python -m pip install pygbag
 
       - name: Build game
         run: |
-          python -m pygbag --build jumper_game_python/main.py
+          python -m pygbag --build --version 0.9.3 jumper_game_python/main.py
 
       - name: Verify build
         run: |
