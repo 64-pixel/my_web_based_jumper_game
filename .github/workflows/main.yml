@@ -34,8 +34,7 @@ jobs:
 
       - name: Build game
         run: |
-          cd jumper_game_python
-          python -m pygbag main.py
+          python -m pygbag --build jumper_game_python/main.py
 
       - name: Inspect build output
         run: |
