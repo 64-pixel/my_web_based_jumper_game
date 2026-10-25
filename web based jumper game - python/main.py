@@ -1333,6 +1333,7 @@ def collect_bananas(player,bananas, objects):
 
 
 async def main(window, level=1, spawn_pos = None):
+    print("main")
     clock = pygame.time.Clock()
 
     level_background = selected_background
