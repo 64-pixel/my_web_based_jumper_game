@@ -27,20 +27,21 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Pygbag
+      - name: Install Pygbag development version
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pygbag==0.9.2
+          python -m pip install --upgrade "git+https://github.com/pygame-web/pygbag.git"
 
       - name: Build game
         run: |
           python -m pygbag --build "$GITHUB_WORKSPACE/web based jumper game - python/main.py"
 
-      - name: Inspect build files
+      - name: Inspect build output
         run: |
-          echo "Obsah build složky:"
-          find "web based jumper game - python/build" -maxdepth 4 -type f
+          echo "Searching for generated files..."
+          find "$GITHUB_WORKSPACE/web based jumper game - python/build" -maxdepth 5 -type f
 
+          test -f "$GITHUB_WORKSPACE/web based jumper game - python/build/web/index.html"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
