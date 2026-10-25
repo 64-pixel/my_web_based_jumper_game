@@ -34,19 +34,20 @@ jobs:
 
       - name: Build game
         run: |
-          python -m pygbag --build $GITHUB_WORKSPACE/game
+          python -m pygbag --build $GITHUB_WORKSPACE/jumper_game_python
 
       - name: Inspect build output
         run: |
           echo "Searching for generated files..."
-          find "$GITHUB_WORKSPACE/game/build" -maxdepth 5 -type f
+          find "$GITHUB_WORKSPACE/jumper_game_python/build" -maxdepth 5 -type f
 
-          test -f "$GITHUB_WORKSPACE/game/build/web/index.html"
+          test -f "$GITHUB_WORKSPACE/jumper_game_python/build/web/index.html"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "game/build/jumper_game_python"
+          publish_dir: "jumper_game_python/build/web"
           publish_branch: gh-pages
+          force_orphan: true
 
