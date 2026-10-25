@@ -33,9 +33,15 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pygbag
 
+      
+      - name: Clean old build
+        run: |
+          rm -rf jumper_game_python/build
+
+
       - name: Build game
         run: |
-          python -m pygbag --build --version 0.9.3 jumper_game_python/main.py
+          python -m pygbag --build jumper_game_python/main.py
 
       
       - name: Remove obsolete BrowserFS script
