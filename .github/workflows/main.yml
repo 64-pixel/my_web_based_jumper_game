@@ -34,7 +34,7 @@ jobs:
 
       - name: Build game
         run: |
-          python -m pygbag --build "$GITHUB_WORKSPACE/web based jumper game - python/main.py"
+          python -m pygbag --build --cdn https://pygame-web.github.io/cdn/0.9.3/ "$GITHUB_WORKSPACE/web based jumper game - python/main.py"
 
       - name: Inspect build output
         run: |
