@@ -1,4 +1,4 @@
-```yaml
+
 name: Build and Deploy Jumper
 
 on:
@@ -43,4 +43,3 @@ jobs:
           publish_dir: "web based jumper game - python/build/web"
           publish_branch: gh-pages
           force_orphan: true
-```
