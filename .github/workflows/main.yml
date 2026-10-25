@@ -34,7 +34,8 @@ jobs:
 
       - name: Build game
         run: |
-          python -m pygbag --build $GITHUB_WORKSPACE/jumper_game_python
+          cd jumper_game_python
+          python -m pygbag main.py
 
       - name: Inspect build output
         run: |
