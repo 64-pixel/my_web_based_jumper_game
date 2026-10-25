@@ -37,6 +37,12 @@ jobs:
         run: |
           python -m pygbag --build --version 0.9.3 jumper_game_python/main.py
 
+      
+      - name: Remove obsolete BrowserFS script
+        run: |
+          sed -i '/browserfs\.min\.js/d' jumper_game_python/build/web/index.html
+    
+
       - name: Verify build
         run: |
           test -f jumper_game_python/build/web/index.html
