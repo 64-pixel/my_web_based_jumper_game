@@ -1,6 +1,6 @@
 # my_web_based_jumper_game
-A platformer in your browser
-Firstly i wanted to make a game similar to fire and water. However during the making process i decided to make a game about a robber who is grabbing fruits instead of money. 
+A platformer in your browser.
+Firstly i wanted to make a game similar to fire and water, which is my childhood game where i spent most of my time. However during the making process i decided to make a game about a robber who is grabbing fruits instead of money. 
 
 Description:
 Main menu:
